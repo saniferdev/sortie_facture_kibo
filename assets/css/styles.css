@@ -124,6 +124,21 @@
     cursor: pointer;
     text-transform: uppercase;
 }
+.btnRegisterR_{
+    float: right;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #f8d13b;
+    color: #fff;
+    font-weight: 600;
+    width: 30%;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
 .btnRetour_{
     float: right;
     margin-top: 2%;

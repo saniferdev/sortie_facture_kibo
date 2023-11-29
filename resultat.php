@@ -15,7 +15,7 @@ if(isset($_POST['num']) && !empty($_POST['num'])){
   $data     = $api->getData($url,$key,$num);
 
   foreach ($data as $value) {
-    $numero   = $value->invoice_num;
+    $numero   = $value->receipt_number;
   } 
   if(!isset($numero) && empty($numero)) echo "";
   else echo json_encode($data);
@@ -25,7 +25,7 @@ elseif(isset($_POST['factR']) && !empty($_POST['factR'])){
   $data     = $api->getData($url,$key,$num);
 
   foreach ($data as $value) {
-    $numero   = $value->invoice_num;
+    $numero   = $value->receipt_number;
   } 
   if(!isset($numero) && empty($numero)) echo "";
   else echo json_encode($data);
@@ -50,7 +50,7 @@ elseif(isset($_POST['fact']) && !empty($_POST['fact'])){
 else if( isset($_POST["add"]) && !empty($_POST["add"]) ){
   $num      = $_POST['facture'];
   $array    = $_POST["add"];
-  $output   = $api->InsertRetour($num,$array);
+  $output   = $api->InsertRetour($num,$array);  
   
   if(isset($output) && $output == $num){
     echo "La facture a été bien rétournée..";

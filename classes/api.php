@@ -25,7 +25,7 @@ Class API {
                 {
                     "receipt_number" : [
                         {
-                            "invoice_num":"'.$num.'"
+                            "receipt_number":"'.$num.'"
                         }
                     ]
                 }

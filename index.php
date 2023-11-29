@@ -49,6 +49,7 @@
                                             <div class="form-group">
                                                 <label for="N°">N°</label>
                                                 <input type="text" class="form-control" id="num_facture" readonly/>
+                                                <input type="hidden" class="form-control" id="num_ticket" readonly/>
                                             </div>
                                             <div class="form-group">
                                                 <label for="Date de la facture">Date de la facture</label>
@@ -99,7 +100,7 @@
                               </div>
                             </div>
                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading2 detail">Détail de la facture  </h3>
+                                <h3  class="register-heading2 detail">Détail du ticket  </h3>
                                     <div class="row table_">
                                         <table id="table"
                                           data-height="500"
@@ -148,7 +149,7 @@
                                         </table>
                                     </div>
                                     <div class="modal-footer">
-                                        <input type="submit" id="retourner" class="btnRegister_"  value="Valider"/>
+                                        <input type="submit" id="retourner" class="btnRegisterR_"  value="Valider"/>
                                     </div>
                                 </div>
                             </div>

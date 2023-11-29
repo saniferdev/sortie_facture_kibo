@@ -10,7 +10,7 @@ $(document).ready(function() {
         });
 
         $('#profile-tab').click(function (e) {        
-            var num = $("#num_facture").val();
+            var num = $("#num_ticket").val();
             if(num == '') return false;
             var message = $("span#message").text();
 
@@ -34,11 +34,12 @@ $(document).ready(function() {
         $('#table').bootstrapTable();
 
         $(document).on( "click","#retour", function(e) {
-            var num = $("#num_facture").val();
+            var num = $("#num_ticket").val();
             if ($.fn.DataTable.isDataTable("#datatable_")) {
               $('#datatable_').DataTable().clear().destroy();
             }
             $(".result").html("");
+
             $.ajax({
                 method: "POST",
                 url: "resultat.php",
@@ -46,6 +47,7 @@ $(document).ready(function() {
                 data: { factR: num }
 
             }).done(function(res){
+
                 var articles = res[0]["articles"];
                 var row      = "";
 
@@ -67,7 +69,7 @@ $(document).ready(function() {
         });
 
         $(document).on( "click","#retourner", function(e) {
-            var num = $("#num_facture").val();
+            var num = $("#num_ticket").val();
             var arr  = [];
             var arr2 = [];
             $("span#message").text("");
@@ -106,7 +108,7 @@ $(document).ready(function() {
         });
 
         $(document).on("click", "#valider", function(e){
-            var num = $("#num_facture").val();
+            var num = $("#num_ticket").val();
             $("#loading_insert").show();
             $("span#message").text("");
             $.ajax({
@@ -158,7 +160,7 @@ $(document).ready(function() {
                         }
                         else{
                             $("#table tbody").text("");
-                            $(".detail").html("Détail de la facture ");
+                            $(".detail").html("Détail du ticket ");
                             $("span#message").hide();
                             $(".btnRegister_").show();
 
@@ -185,7 +187,7 @@ $(document).ready(function() {
                                 row       = "<tr><td>"+art.reference+"</td><td>"+art.desc1+"</td><td>"+art.quantity+"</td></tr>";
                                 $("#table tbody").append(row);
                             });
-                            $(".detail").append('<span class="facture_">'+$("#num_facture").val()+'</span>');
+                            $(".detail").append('<span class="facture_">'+$("#num_ticket").val()+'</span>');
                             $("#loading-image").hide();
                             $(".resultat").show();
                         }
