@@ -133,6 +133,24 @@ $(document).ready(function() {
             return false;
         });
 
+        $('.dateRange').datepicker({
+            inputs: $('.dateRangeInput'),
+            language: 'fr'
+        });
+        
+        $('.dateRangeTrigger').click(function() {
+            $(this).closest('.input-group').find('.dateRangeInput').datepicker('show');
+        });
+        
+        $(document).on("click", "#print_", function(e){
+            var d = $('#startDate').val().split("/").reverse().join("-");
+            var f = $('#endDate').val().split("/").reverse().join("-");
+            var t = $('input[name = "selection"]:checked').val();
+            if(d == "") alert("Veuillez séléctionner une date d'extraction svp!!");
+            else window.open("impression.php?d="+d+"&f="+f+"&t="+t,"_blank");
+            return false;
+        });
+
         var gdf = {}; 
         gdf.Recherche=function() { 
             $('#ticket').each(function() {

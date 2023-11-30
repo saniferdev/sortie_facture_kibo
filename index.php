@@ -13,6 +13,9 @@
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="./assets/css/bootstrap-table.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="./assets/css/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" href="./assets/plugins/bootstrap-datepicker/bootstrap-datepicker.standalone.min.css">
     <link href="./assets/css/styles.css" rel="stylesheet">
 </head>
 
@@ -24,6 +27,9 @@
                         <h3>SORTIE  <br> DE <br> MARCHANDISES</h3>
                     </div>
                     <div class="col-md-9 register-right">
+                        <a class="imprim" href="#Impression" role="button" data-toggle="modal">
+                            <img title="Imprimer les mouvements" alt="Imprimer les sorties" class="print" src="assets/images/print.png">
+                        </a>
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Entête</a>
@@ -158,10 +164,63 @@
                 </div>
 
             </div>
+    <div id="Impression" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Mvt_Sortie" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		    	<div class="modal-header">
+				    <h5 class="modal-title" id="Mvt_Sortie">Impression</h5>
+				    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				        <span aria-hidden="true">&times;</span>
+				    </button>
+			    </div>
+				  <div class="modal-body">
+				  	<div class="container">
+		  				<div class="row dateRange">
+						  <div class="col-sm-6">
+						    <label for="startDate">Début</label>
+						    <div class="input-group mb-3">
+						      <input type="text" class="form-control dateRangeInput" id="startDate" placeholder="Date de début">
+						      <div class="input-group-append input-group-addon">
+						        <button class="btn btn-outline-secondary dateRangeTrigger" type="button"><i aria-label="Date de début" class="fa fa-calendar" aria-hidden="true"></i></button>
+						      </div>
+						    </div>
+						  </div>
+						  <div class="col-sm-6">
+						    <label for="endDate">Fin</label>
+						    <div class="input-group mb-3">
+						      <input type="text" class="form-control dateRangeInput" id="endDate" placeholder="Date de fin">
+						      <div class="input-group-append input-group-addon">
+						        <button class="btn btn-outline-secondary dateRangeTrigger" type="button"><i aria-label="Date de fin" class="fa fa-calendar" aria-hidden="true"></i></button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="selection" id="sorties" value="0" checked>
+                            <label class="form-check-label" for="sorties">
+                               Sorties
+                            </label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="radio" name="selection" id="retours" value="1">
+                            <label class="form-check-label" for="retours">
+                                Retours
+                            </label>
+                        </div>
+					</div>
+				  </div>
+				<div class="modal-footer">
+	                <input type="submit" id="print_" name="print_" class="btn btn-primary" value="Imprimer" >
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-<script src="./assets/js/jquery.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
-<script src="./assets/js/bootstrap-table.min.js"></script>
-<script src="./assets/js/datatables.min.js"></script>
-<script src="./assets/js/script.js"></script>
+<script type="text/javascript" src="./assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./assets/js/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="./assets/js/datatables.min.js"></script>
+<script type="text/javascript" src="./assets/js/script.js"></script>
+<script type="text/javascript" src="./assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="./assets/plugins/bootstrap-datepicker/bootstrap-datepicker.fr.min.js"></script>
 </html>

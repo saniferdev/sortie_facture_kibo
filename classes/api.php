@@ -90,6 +90,23 @@ Class API {
         }
     }
 
+    public function getSorties($d,$f){
+        $queryParams    = $data = array();
+        $queryOptions   = array("Scrollable" => SQLSRV_CURSOR_KEYSET);
+        $query          = " SELECT * FROM historique_facture WHERE CAST(sortie_date AS DATE) BETWEEN '".$d."' AND '".$f."' ORDER BY sortie_date";
+
+        $resultat       = sqlsrv_query($this->link, $query, $queryParams, $queryOptions);
+        if ($resultat == FALSE) {
+            var_dump(sqlsrv_errors());
+            return false;
+        } else {
+            while($row = sqlsrv_fetch_array($resultat, SQLSRV_FETCH_ASSOC)){
+                $data[] = $row;
+            }
+            return $data;
+        }
+    }
+
     public function InsertData($n){
         $query = "INSERT INTO [dbo].[historique_facture]
                        ([sortie_date]
@@ -105,6 +122,23 @@ Class API {
     public function InsertDataDuplicat($n){
         $query = "INSERT INTO [dbo].[duplicat_validation] ([num]) VALUES ('".$n."')";
         sqlsrv_query($this->link, $query);
+    }
+
+    public function getRetours($d,$f){
+        $queryParams    = $data = array();
+        $queryOptions   = array("Scrollable" => SQLSRV_CURSOR_KEYSET);
+        $query          = " SELECT * FROM retour_validation WHERE CAST(dates AS DATE) BETWEEN '".$d."' AND '".$f."' ORDER BY dates";
+
+        $resultat       = sqlsrv_query($this->link, $query, $queryParams, $queryOptions);
+        if ($resultat == FALSE) {
+            var_dump(sqlsrv_errors());
+            return false;
+        } else {
+            while($row = sqlsrv_fetch_array($resultat, SQLSRV_FETCH_ASSOC)){
+                $data[] = $row;
+            }
+            return $data;
+        }
     }
 
     public function InsertRetour($num,$array){
